@@ -76,14 +76,14 @@ flowchart LR
 业务数据根目录继续使用：
 
 ```text
-~/.brevyn-dev/   # dev
-~/.brevyn/       # prod
+~/.brevyn-community-dev/   # Community dev
+~/.brevyn-community/       # Community prod
 ```
 
 SDK 接入后新增：
 
 ```text
-~/.brevyn-dev/
+~/.brevyn-community-dev/
   sdk-config/               # CLAUDE_CONFIG_DIR，隔离用户全局 ~/.claude
   semesters/
     <semesterId>/
@@ -461,4 +461,3 @@ App.tsx selectedThreadId
 - 自建 shell/edit/git tools
 
 这些等课程 thread + JSONL + SDK + RAG + approval 稳定后再评估。
-

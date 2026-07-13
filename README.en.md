@@ -79,10 +79,17 @@ This repository does not contain Brevyn Official account, billing, wallet, subsc
 
 ## Development
 
-Install dependencies:
+Requirements:
+
+- Node.js 22 or newer
+- Python 3.9 or newer
+- Git
+- LibreOffice is optional for basic development, but a runtime is required to build or verify high-fidelity Office previews
+
+Install the locked dependency versions:
 
 ```bash
-npm install
+npm ci
 ```
 
 Start development:
@@ -117,6 +124,9 @@ npm run dist:mac
 
 ## Documentation
 
+- [Contributing](CONTRIBUTING.md)
+- [Contributor License Agreement](CLA.md)
+- [Security policy](SECURITY.md)
 - [Architecture](docs/architecture.md)
 - [Claude Agent SDK setup](docs/agent-sdk-setup.md)
 - [OpenAI Responses Anthropic adapter](docs/openai-responses-anthropic-adapter.md)
