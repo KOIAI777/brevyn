@@ -309,7 +309,7 @@ const records: AgentTimelineRecord[] = [
     { type: "text", text: "I will check the workspace structure first." },
     { type: "tool_use", id: "tool_pwd", name: "Bash", input: { command: "pwd" } },
   ], "assistant_1"),
-  toolResult("tool_pwd", "/Users/koi/.brevyn-dev/semesters/semester-fixture", "tool_result_1"),
+  toolResult("tool_pwd", "/Users/koi/.brevyn-community-dev/semesters/semester-fixture", "tool_result_1"),
   assistant([
     { type: "thinking", thinking: "Now I should list the files." },
     { type: "tool_use", id: "tool_glob", name: "Glob", input: { pattern: "**/*" } },
@@ -337,7 +337,7 @@ assert.match(sdkOrderItems[1]?.assistantContent || "", /workspace structure/);
 const pwdTool = sdkOrderItems[2]?.processEvents[0];
 assert.equal(pwdTool?.kind, "tool_use");
 assert.equal(pwdTool?.kind === "tool_use" ? pwdTool.tool.name : "", "Bash");
-assert.equal(pwdTool?.kind === "tool_use" ? pwdTool.result?.content : "", "/Users/koi/.brevyn-dev/semesters/semester-fixture");
+assert.equal(pwdTool?.kind === "tool_use" ? pwdTool.result?.content : "", "/Users/koi/.brevyn-community-dev/semesters/semester-fixture");
 const globTool = sdkOrderItems[4]?.processEvents[0];
 assert.equal(globTool?.kind, "tool_use");
 assert.equal(globTool?.kind === "tool_use" ? globTool.tool.name : "", "Glob");

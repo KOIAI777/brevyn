@@ -11,7 +11,7 @@ import { startWorkspaceFileWatcher, stopWorkspaceFileWatcher } from "./services/
 import { registerWorkspaceFilePreviewProtocol, WORKSPACE_FILE_PREVIEW_PROTOCOL } from "./services/workspace-file-preview-protocol";
 import { cleanupUpdater, initAutoUpdater, isInstallingUpdate } from "./updater/auto-updater";
 
-app.setPath("userData", join(app.getPath("appData"), app.isPackaged ? "Brevyn" : "Brevyn Dev"));
+app.setPath("userData", join(app.getPath("appData"), app.isPackaged ? "Brevyn Community" : "Brevyn Community Dev"));
 protocol.registerSchemesAsPrivileged([
   {
     scheme: WORKSPACE_FILE_PREVIEW_PROTOCOL,
@@ -64,7 +64,7 @@ function createWindow(): void {
     minWidth: 960,
     minHeight: 640,
     show: false,
-    title: "Brevyn",
+    title: "Brevyn Community",
     icon: iconPath,
     backgroundColor: currentWindowBackgroundColor(),
     trafficLightPosition: isMac ? { x: 18, y: 18 } : undefined,
@@ -371,7 +371,7 @@ function createDeferredIndexingQueue(): IndexingQueueService {
 }
 
 function brevynDataRoot(): string {
-  return join(homedir(), app.isPackaged ? ".brevyn" : ".brevyn-dev");
+  return join(homedir(), app.isPackaged ? ".brevyn-community" : ".brevyn-community-dev");
 }
 
 function configureClaudeSdk(dataRoot: string): void {
