@@ -1,0 +1,924 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+    --background: 48 33% 97%;
+    --foreground: 60 3% 8%;
+    --card: 45 43% 98%;
+    --card-foreground: 60 3% 8%;
+    --popover: 45 43% 98%;
+    --popover-foreground: 60 3% 8%;
+    --primary: 15 63% 60%;
+    --primary-foreground: 48 33% 97%;
+    --secondary: 50 21% 89%;
+    --secondary-foreground: 60 3% 10%;
+    --muted: 47 24% 91%;
+    --muted-foreground: 42 8% 38%;
+    --accent: 39 28% 90%;
+    --accent-foreground: 60 3% 10%;
+    --destructive: 0 67% 50%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 43 20% 84%;
+    --input: 43 20% 84%;
+    --ring: 15 63% 60%;
+    --radius: 10px;
+    --radius-window: 20px;
+    --radius-panel: 16px;
+    --radius-card: 12px;
+    --radius-control: 10px;
+    --radius-badge: 6px;
+    --radius-avatar: 20%;
+    --radius-pill: 999px;
+    --shadow-xs: 0 1px 1px rgba(64, 55, 38, 0.035);
+    --shadow-sm: 0 1px 2px rgba(64, 55, 38, 0.045), 0 0 0 1px rgba(64, 55, 38, 0.025);
+    --shadow-md: 0 5px 14px -7px rgba(64, 55, 38, 0.1), 0 1px 4px -2px rgba(64, 55, 38, 0.06), 0 0 0 1px rgba(64, 55, 38, 0.032);
+    --shadow-lg: 0 14px 32px -18px rgba(64, 55, 38, 0.17), 0 6px 14px -11px rgba(64, 55, 38, 0.09), 0 0 0 1px rgba(64, 55, 38, 0.04);
+    --shadow-xl: 0 24px 64px -30px rgba(64, 55, 38, 0.24), 0 14px 28px -22px rgba(64, 55, 38, 0.12), 0 0 0 1px rgba(64, 55, 38, 0.052);
+    --shadow-2xl: 0 34px 88px -40px rgba(64, 55, 38, 0.29), 0 16px 38px -30px rgba(64, 55, 38, 0.15), 0 0 0 1px rgba(64, 55, 38, 0.06);
+    --shadow-window: var(--shadow-xl);
+    --shadow-panel: var(--shadow-md);
+    --shadow-card: var(--shadow-md);
+    --shadow-control: inset 0 0 0 1px rgba(64, 55, 38, 0.052), inset 0 1px 0 rgba(255, 255, 255, 0.42);
+    --surface-floating: 45 43% 98%;
+    --surface-floating-border: 36 20% 28%;
+    --focus-glow: 15 63% 60%;
+    --surface-warm: 43 40% 94%;
+    --surface-chrome: 45 22% 92%;
+    --surface-panel: 48 33% 97%;
+    --brand-glow: 15 63% 60%;
+    --status-success: 154 53% 38%;
+    --status-warning: 36 76% 42%;
+    --status-danger: 0 67% 50%;
+    --status-info: 210 49% 61%;
+    --code-bg: #f6efe6;
+    --code-fg: #2d261f;
+    --code-muted: #8f7a66;
+    --code-border: rgba(130, 98, 68, 0.18);
+    --code-inline-bg: rgba(151, 104, 70, 0.115);
+    --code-inline-fg: #7a3f24;
+    --code-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), 0 14px 34px -28px rgba(85, 57, 32, 0.34);
+  }
+
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --background: 0 0% 7%;
+    --foreground: 42 18% 92%;
+    --card: 0 0% 11%;
+    --card-foreground: 42 18% 92%;
+    --popover: 0 0% 12%;
+    --popover-foreground: 42 18% 92%;
+    --primary: 18 62% 64%;
+    --primary-foreground: 0 0% 5%;
+    --secondary: 0 0% 16%;
+    --secondary-foreground: 42 16% 88%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 42 9% 68%;
+    --accent: 0 0% 18%;
+    --accent-foreground: 42 18% 90%;
+    --destructive: 0 62% 58%;
+    --destructive-foreground: 42 34% 94%;
+    --border: 0 0% 24%;
+    --input: 0 0% 24%;
+    --ring: 18 62% 64%;
+    --shadow-xs: inset 0 0 0 1px rgba(255, 255, 255, 0.026);
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.16), inset 0 0 0 1px rgba(255, 255, 255, 0.035), inset 0 1px 0 rgba(255, 255, 255, 0.018);
+    --shadow-md: 0 8px 18px -14px rgba(0, 0, 0, 0.5), 0 2px 5px -3px rgba(0, 0, 0, 0.26), inset 0 0 0 1px rgba(255, 255, 255, 0.045);
+    --shadow-lg: 0 18px 38px -26px rgba(0, 0, 0, 0.6), 0 6px 16px -14px rgba(0, 0, 0, 0.42), inset 0 0 0 1px rgba(255, 255, 255, 0.052), inset 0 1px 0 rgba(255, 255, 255, 0.035);
+    --shadow-xl: 0 30px 70px -34px rgba(0, 0, 0, 0.76), 0 14px 30px -24px rgba(0, 0, 0, 0.54), inset 0 0 0 1px rgba(255, 255, 255, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.045);
+    --shadow-2xl: 0 40px 96px -42px rgba(0, 0, 0, 0.82), 0 18px 42px -32px rgba(0, 0, 0, 0.6), inset 0 0 0 1px rgba(255, 255, 255, 0.065), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    --shadow-window: var(--shadow-xl);
+    --shadow-panel: var(--shadow-md);
+    --shadow-card: var(--shadow-sm);
+    --shadow-control: inset 0 0 0 1px rgba(255, 255, 255, 0.065), inset 0 1px 0 rgba(255, 255, 255, 0.035);
+    --surface-warm: 0 0% 13%;
+    --surface-chrome: 0 0% 12%;
+    --surface-panel: 0 0% 9%;
+    --surface-floating: 0 0% 13%;
+    --surface-floating-border: 42 18% 92%;
+    --brand-glow: 18 62% 64%;
+    --focus-glow: 18 62% 64%;
+    --status-success: 151 45% 57%;
+    --status-warning: 36 72% 58%;
+    --status-danger: 0 62% 58%;
+    --status-info: 207 52% 66%;
+    --code-bg: #171412;
+    --code-fg: #efe4d7;
+    --code-muted: #a99380;
+    --code-border: rgba(255, 232, 204, 0.105);
+    --code-inline-bg: rgba(238, 168, 117, 0.13);
+    --code-inline-fg: #f0b88e;
+    --code-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.035), 0 18px 40px -32px rgba(0, 0, 0, 0.72);
+  }
+
+  :root[data-code-theme="github"] {
+    --code-bg: #f7f9fc;
+    --code-fg: #24292f;
+    --code-muted: #6e7781;
+    --code-border: rgba(36, 41, 47, 0.13);
+    --code-inline-bg: rgba(9, 105, 218, 0.09);
+    --code-inline-fg: #0969da;
+    --code-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.66), 0 14px 30px -28px rgba(31, 43, 59, 0.3);
+  }
+
+  :root[data-theme="dark"][data-code-theme="github"] {
+    --code-bg: #0d1117;
+    --code-fg: #e6edf3;
+    --code-muted: #7d8590;
+    --code-border: rgba(240, 246, 252, 0.12);
+    --code-inline-bg: rgba(56, 139, 253, 0.14);
+    --code-inline-fg: #79c0ff;
+    --code-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.045), 0 18px 44px -34px rgba(0, 0, 0, 0.76);
+  }
+
+  :root[data-code-theme="rose"] {
+    --code-bg: #faf4ed;
+    --code-fg: #575279;
+    --code-muted: #9893a5;
+    --code-border: rgba(87, 82, 121, 0.15);
+    --code-inline-bg: rgba(144, 122, 169, 0.13);
+    --code-inline-fg: #907aa9;
+    --code-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.58), 0 14px 34px -28px rgba(87, 82, 121, 0.32);
+  }
+
+  :root[data-theme="dark"][data-code-theme="rose"] {
+    --code-bg: #191724;
+    --code-fg: #e0def4;
+    --code-muted: #908caa;
+    --code-border: rgba(224, 222, 244, 0.12);
+    --code-inline-bg: rgba(196, 167, 231, 0.14);
+    --code-inline-fg: #c4a7e7;
+    --code-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.045), 0 18px 44px -34px rgba(0, 0, 0, 0.76);
+  }
+
+  :root[data-code-theme="mono"] {
+    --code-bg: #f2f1ee;
+    --code-fg: #282624;
+    --code-muted: #77716a;
+    --code-border: rgba(43, 39, 35, 0.14);
+    --code-inline-bg: rgba(42, 39, 35, 0.08);
+    --code-inline-fg: #36322e;
+    --code-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.62), 0 12px 28px -28px rgba(34, 31, 28, 0.34);
+  }
+
+  :root[data-theme="dark"][data-code-theme="mono"] {
+    --code-bg: #121212;
+    --code-fg: #e7e2db;
+    --code-muted: #948f88;
+    --code-border: rgba(235, 229, 220, 0.11);
+    --code-inline-bg: rgba(235, 229, 220, 0.09);
+    --code-inline-fg: #e7e2db;
+    --code-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.035), 0 18px 42px -34px rgba(0, 0, 0, 0.76);
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family:
+      -apple-system,
+      BlinkMacSystemFont,
+      "SF Pro Text",
+      "PingFang SC",
+      "Segoe UI",
+      system-ui,
+      sans-serif;
+    font-feature-settings: "cv11", "ss01", "ss03", "tnum";
+    letter-spacing: 0;
+    overflow: hidden;
+    transition: background-color 160ms ease, color 160ms ease;
+  }
+
+  :root[data-font-smoothing="on"] body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  :root[data-font-smoothing="off"] body {
+    -webkit-font-smoothing: auto;
+    -moz-osx-font-smoothing: auto;
+    text-rendering: auto;
+  }
+
+  ::selection {
+    background: hsl(var(--primary) / 0.24);
+    color: hsl(var(--foreground));
+  }
+
+  :root[data-theme="dark"] ::selection {
+    background: hsl(var(--primary) / 0.36);
+  }
+
+  button,
+  textarea,
+  input,
+  select {
+    font: inherit;
+  }
+
+  button:focus-visible,
+  [role="button"]:focus-visible,
+  [role="combobox"]:focus-visible,
+  [tabindex]:not([tabindex="-1"]):not(.brevyn-rich-prompt-editor):focus-visible {
+    outline: none;
+    box-shadow:
+      0 0 0 1px hsl(var(--focus-glow) / 0.42),
+      0 0 0 4px hsl(var(--focus-glow) / 0.13);
+  }
+
+  .brevyn-task-progress-button:focus,
+  .brevyn-task-progress-button:focus-visible {
+    outline: none;
+    box-shadow: none;
+  }
+
+  input:focus,
+  input:focus-visible,
+  textarea:focus,
+  textarea:focus-visible,
+  select:focus,
+  select:focus-visible,
+  [contenteditable="true"]:focus,
+  [contenteditable="true"]:focus-visible {
+    outline: none;
+    box-shadow: none;
+    --tw-ring-color: transparent;
+    --tw-ring-offset-shadow: 0 0 #0000;
+    --tw-ring-shadow: 0 0 #0000;
+    --tw-shadow: 0 0 #0000;
+    --tw-shadow-colored: 0 0 #0000;
+  }
+}
+
+@layer utilities {
+  @keyframes taskagent-light-sweep {
+    0% {
+      background-position: 220% 50%;
+    }
+    100% {
+      background-position: -220% 50%;
+    }
+  }
+
+  @keyframes taskagent-panel-content-in {
+    from {
+      opacity: 0;
+      transform: translateX(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes process-row-in {
+    from {
+      opacity: 0;
+      transform: translateY(6px) scale(0.992);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @keyframes brevyn-stream-inline-char-in {
+    from {
+      opacity: 0;
+      filter: blur(1.6px);
+      transform: translateY(2px);
+    }
+    to {
+      opacity: 1;
+      filter: blur(0);
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes tool-details-content-in {
+    from {
+      opacity: 0;
+      transform: translateY(-2px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .taskagent-sweep-text {
+    animation: taskagent-light-sweep 3.6s linear infinite;
+    background-image: linear-gradient(
+      100deg,
+      hsl(var(--muted-foreground)) 0%,
+      hsl(var(--muted-foreground)) 44%,
+      hsl(var(--foreground)) 50%,
+      hsl(var(--muted-foreground)) 56%,
+      hsl(var(--muted-foreground)) 100%
+    );
+    background-size: 320% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .brevyn-app-background {
+    background:
+      radial-gradient(circle at 20% 0%, hsl(var(--brand-glow) / 0.07), transparent 34%),
+      linear-gradient(180deg, hsl(var(--background)), hsl(var(--surface-warm)));
+  }
+
+  .brevyn-dashboard-background {
+    background:
+      radial-gradient(circle at 18% 8%, hsl(var(--brand-glow) / 0.06), transparent 30%),
+      linear-gradient(180deg, hsl(var(--surface-panel) / 0.9), hsl(var(--background) / 0.98));
+  }
+
+  .brevyn-dashboard-scroll {
+    min-height: 0;
+    flex: 1 1 0%;
+    overflow-y: auto;
+    padding: clamp(0.75rem, 1.7vw, 1.35rem);
+    color: hsl(var(--foreground));
+    font-size: 0.875rem;
+  }
+
+  .brevyn-dashboard-shell {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    width: min(100%, 86rem);
+    min-width: 0;
+    flex-direction: column;
+    gap: clamp(0.75rem, 1.2vw, 1rem);
+  }
+
+  .brevyn-empty-dashboard-shell {
+    width: min(100%, 88rem);
+  }
+
+  .brevyn-empty-dashboard-stage {
+    display: grid;
+    min-height: clamp(22rem, 56vh, 38rem);
+    gap: clamp(1.1rem, 2.4vw, 2.4rem);
+    padding: clamp(1rem, 2.4vw, 2.2rem);
+  }
+
+  .brevyn-empty-dashboard-title {
+    max-width: 12ch;
+    font-size: clamp(1.95rem, 4.4vw, 4.25rem);
+    font-weight: 600;
+    line-height: 0.98;
+    letter-spacing: -0.068em;
+  }
+
+  .brevyn-empty-dashboard-description {
+    max-width: 42rem;
+    font-size: clamp(0.875rem, 1.15vw, 1.06rem);
+    line-height: 1.68;
+  }
+
+  .brevyn-empty-dashboard-side {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .brevyn-empty-dashboard-watermark {
+    font-size: clamp(5rem, 13vw, 12rem);
+  }
+
+  @media (min-width: 960px) {
+    .brevyn-empty-dashboard-stage {
+      grid-template-columns: minmax(0, 1fr) minmax(18rem, min(27vw, 24rem));
+    }
+  }
+
+  .brevyn-hero-surface {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-window);
+    background:
+      radial-gradient(circle at 82% 0%, hsl(var(--brand-glow) / 0.1), transparent 32%),
+      linear-gradient(180deg, hsl(var(--card) / 0.98), hsl(var(--surface-panel) / 0.92));
+    box-shadow: var(--shadow-panel);
+  }
+
+  .brevyn-hero-surface::before {
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    box-shadow: inset 0 1px 0 hsl(var(--foreground) / 0.07);
+  }
+
+  .brevyn-soft-section {
+    border-radius: var(--radius-panel);
+    background: hsl(var(--card) / 0.78);
+    box-shadow: var(--shadow-card);
+  }
+
+  .brevyn-quiet-card {
+    border-radius: var(--radius-card);
+    background: hsl(var(--background) / 0.58);
+    box-shadow: inset 0 0 0 1px hsl(var(--border) / 0.34);
+  }
+
+  .brevyn-quiet-card:hover {
+    background: hsl(var(--accent) / 0.42);
+  }
+
+  .brevyn-composer-surface {
+    background: hsl(var(--card) / 0.99);
+    box-shadow:
+      0 18px 44px rgba(64, 55, 38, 0.105),
+      inset 0 0 0 1px hsl(var(--foreground) / 0.075);
+  }
+
+  .brevyn-composer-surface-dragging {
+    background: hsl(var(--status-info) / 0.1);
+    box-shadow:
+      0 18px 44px rgba(64, 55, 38, 0.09),
+      inset 0 0 0 1px hsl(var(--status-info) / 0.32);
+  }
+
+  .brevyn-composer-tray {
+    background: hsl(var(--card) / 0.96);
+    box-shadow:
+      0 10px 26px rgba(64, 55, 38, 0.075),
+      inset 0 0 0 1px hsl(var(--foreground) / 0.065);
+  }
+
+  .brevyn-composer-float {
+    background: hsl(var(--card) / 0.985);
+    box-shadow:
+      0 16px 38px rgba(64, 55, 38, 0.105),
+      inset 0 0 0 1px hsl(var(--foreground) / 0.07);
+  }
+
+  .brevyn-composer-toast {
+    background: hsl(var(--status-warning) / 0.13);
+    color: hsl(var(--status-warning));
+    box-shadow:
+      0 8px 20px rgba(64, 55, 38, 0.08),
+      inset 0 0 0 1px hsl(var(--status-warning) / 0.2);
+  }
+
+  .brevyn-composer-send {
+    background: hsl(var(--foreground));
+    color: hsl(var(--background));
+    box-shadow: 0 8px 20px hsl(var(--foreground) / 0.13);
+  }
+
+  .brevyn-popover-surface {
+    background: hsl(var(--surface-floating) / 0.96);
+    box-shadow:
+      var(--shadow-xl),
+      inset 0 1px 0 hsl(var(--foreground) / 0.045),
+      inset 0 0 0 1px hsl(var(--surface-floating-border) / 0.075);
+    backdrop-filter: blur(18px);
+  }
+
+  .brevyn-floating-surface {
+    background:
+      linear-gradient(180deg, hsl(var(--surface-floating) / 0.96), hsl(var(--card) / 0.92));
+    box-shadow:
+      var(--shadow-xl),
+      inset 0 1px 0 hsl(var(--foreground) / 0.045),
+      inset 0 0 0 1px hsl(var(--surface-floating-border) / 0.08);
+    backdrop-filter: blur(20px);
+  }
+
+  .brevyn-soft-button {
+    background: hsl(var(--foreground) / 0.045);
+    box-shadow: inset 0 0 0 1px hsl(var(--foreground) / 0.045);
+  }
+
+  .brevyn-soft-button:hover {
+    background: hsl(var(--foreground) / 0.072);
+  }
+
+  .brevyn-primary-button {
+    background: hsl(var(--foreground));
+    color: hsl(var(--background));
+    box-shadow:
+      0 8px 18px hsl(var(--foreground) / 0.12),
+      inset 0 1px 0 hsl(var(--background) / 0.12);
+  }
+
+  .brevyn-primary-button:hover {
+    opacity: 0.92;
+  }
+
+  .brevyn-model-logo-tile {
+    background: rgba(255, 255, 255, 0.92);
+    box-shadow:
+      inset 0 0 0 1px rgba(0, 0, 0, 0.08),
+      0 1px 2px rgba(64, 55, 38, 0.06);
+  }
+
+  .brevyn-status-pill-warning {
+    background: hsl(var(--status-warning) / 0.12);
+    color: hsl(var(--status-warning));
+    box-shadow: inset 0 0 0 1px hsl(var(--status-warning) / 0.18);
+  }
+
+  .brevyn-status-pill-success {
+    background: hsl(var(--status-success) / 0.12);
+    color: hsl(var(--status-success));
+    box-shadow: inset 0 0 0 1px hsl(var(--status-success) / 0.18);
+  }
+
+  .brevyn-status-pill-danger {
+    background: hsl(var(--status-danger) / 0.12);
+    color: hsl(var(--status-danger));
+    box-shadow: inset 0 0 0 1px hsl(var(--status-danger) / 0.18);
+  }
+
+  .brevyn-status-pill-info {
+    background: hsl(var(--status-info) / 0.12);
+    color: hsl(var(--status-info));
+    box-shadow: inset 0 0 0 1px hsl(var(--status-info) / 0.18);
+  }
+
+  .brevyn-status-card-warning {
+    background: hsl(var(--status-warning) / 0.09);
+    box-shadow: inset 0 0 0 1px hsl(var(--status-warning) / 0.18);
+  }
+
+  .brevyn-status-card-success {
+    background: hsl(var(--status-success) / 0.09);
+    box-shadow: inset 0 0 0 1px hsl(var(--status-success) / 0.18);
+  }
+
+  .brevyn-status-card-danger {
+    background: hsl(var(--status-danger) / 0.09);
+    box-shadow: inset 0 0 0 1px hsl(var(--status-danger) / 0.18);
+  }
+
+  .brevyn-status-card-info {
+    background: hsl(var(--status-info) / 0.09);
+    box-shadow: inset 0 0 0 1px hsl(var(--status-info) / 0.18);
+  }
+
+  .brevyn-status-icon-warning {
+    background: hsl(var(--status-warning) / 0.13);
+    color: hsl(var(--status-warning));
+  }
+
+  .brevyn-status-icon-success {
+    background: hsl(var(--status-success) / 0.13);
+    color: hsl(var(--status-success));
+  }
+
+  .brevyn-status-icon-danger {
+    background: hsl(var(--status-danger) / 0.13);
+    color: hsl(var(--status-danger));
+  }
+
+  .brevyn-status-icon-info {
+    background: hsl(var(--status-info) / 0.13);
+    color: hsl(var(--status-info));
+  }
+
+  .brevyn-activity-cell-0 {
+    background: hsl(var(--muted) / 0.42);
+    border-color: hsl(var(--border) / 0.62);
+  }
+
+  .brevyn-activity-cell-1 {
+    background: hsl(36 46% 85% / 0.72);
+    border-color: hsl(28 42% 64% / 0.26);
+  }
+
+  .brevyn-activity-cell-2 {
+    background: hsl(30 58% 76% / 0.78);
+    border-color: hsl(24 52% 56% / 0.28);
+  }
+
+  .brevyn-activity-cell-3 {
+    background: hsl(22 62% 66% / 0.9);
+    border-color: hsl(18 58% 50% / 0.32);
+  }
+
+  .brevyn-activity-cell-4 {
+    background: hsl(16 64% 56%);
+    border-color: hsl(14 60% 43% / 0.34);
+  }
+
+  :root[data-theme="dark"] .brevyn-composer-surface {
+    background: hsl(0 0% 15%);
+    box-shadow:
+      inset 0 0 0 1px rgba(255, 255, 255, 0.062),
+      inset 0 1px 0 rgba(255, 255, 255, 0.035);
+  }
+
+  :root[data-theme="dark"] .brevyn-composer-surface-dragging {
+    background: hsl(var(--status-info) / 0.16);
+    box-shadow:
+      inset 0 0 0 1px hsl(var(--status-info) / 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.035);
+  }
+
+  :root[data-theme="dark"] .brevyn-composer-tray {
+    background: hsl(0 0% 13%);
+    box-shadow:
+      0 12px 30px rgba(0, 0, 0, 0.28),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.055);
+  }
+
+  :root[data-theme="dark"] .brevyn-composer-float {
+    background: hsl(0 0% 14%);
+    box-shadow:
+      0 18px 44px rgba(0, 0, 0, 0.34),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+  }
+
+  :root[data-theme="dark"] .brevyn-composer-toast {
+    background: hsl(var(--status-warning) / 0.14);
+    color: hsl(var(--status-warning));
+    box-shadow:
+      0 10px 24px rgba(0, 0, 0, 0.26),
+      inset 0 0 0 1px hsl(var(--status-warning) / 0.18);
+  }
+
+  :root[data-theme="dark"] .brevyn-composer-send {
+    background: hsl(0 0% 92%);
+    color: hsl(0 0% 6%);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.24);
+  }
+
+  :root[data-theme="dark"] .brevyn-popover-surface {
+    background: hsl(var(--surface-floating) / 0.96);
+    box-shadow:
+      var(--shadow-xl),
+      inset 0 1px 0 rgba(255, 255, 255, 0.052),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.065);
+  }
+
+  :root[data-theme="dark"] .brevyn-floating-surface {
+    background:
+      linear-gradient(180deg, hsl(0 0% 14% / 0.96), hsl(0 0% 11% / 0.93));
+    box-shadow:
+      var(--shadow-xl),
+      inset 0 1px 0 rgba(255, 255, 255, 0.056),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.065);
+  }
+
+  :root[data-theme="dark"] .brevyn-preview-empty-card {
+    border-color: transparent;
+    background: hsl(var(--foreground) / 0.035);
+    box-shadow: none;
+    --tw-ring-color: transparent;
+  }
+
+  :root[data-theme="dark"] .brevyn-model-logo-tile {
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow:
+      inset 0 0 0 1px rgba(255, 255, 255, 0.22),
+      0 1px 2px rgba(0, 0, 0, 0.24);
+  }
+
+  input:focus,
+  input:focus-visible,
+  textarea:focus,
+  textarea:focus-visible,
+  select:focus,
+  select:focus-visible,
+  [contenteditable="true"]:focus,
+  [contenteditable="true"]:focus-visible,
+  .ProseMirror-focused,
+  .brevyn-rich-prompt-editor:focus,
+  .brevyn-rich-prompt-editor:focus-visible {
+    outline: none !important;
+    box-shadow: none !important;
+    --tw-ring-color: transparent !important;
+    --tw-ring-offset-shadow: 0 0 #0000 !important;
+    --tw-ring-shadow: 0 0 #0000 !important;
+    --tw-shadow: 0 0 #0000 !important;
+    --tw-shadow-colored: 0 0 #0000 !important;
+  }
+
+  :root[data-theme="dark"] .brevyn-activity-cell-0 {
+    background: rgba(255, 255, 255, 0.045);
+    border-color: rgba(255, 255, 255, 0.055);
+  }
+
+  :root[data-theme="dark"] .brevyn-activity-cell-1 {
+    background: hsl(40 11% 23% / 0.72);
+    border-color: hsl(38 14% 46% / 0.16);
+  }
+
+  :root[data-theme="dark"] .brevyn-activity-cell-2 {
+    background: hsl(39 14% 34% / 0.78);
+    border-color: hsl(38 18% 58% / 0.18);
+  }
+
+  :root[data-theme="dark"] .brevyn-activity-cell-3 {
+    background: hsl(36 22% 48% / 0.86);
+    border-color: hsl(36 30% 68% / 0.2);
+  }
+
+  :root[data-theme="dark"] .brevyn-activity-cell-4 {
+    background: hsl(34 38% 67% / 0.92);
+    border-color: hsl(34 42% 78% / 0.24);
+  }
+
+  .brevyn-window-surface {
+    border-radius: var(--radius-window);
+    background: hsl(var(--card));
+    box-shadow: var(--shadow-window);
+  }
+
+  .brevyn-dialog-window {
+    height: min(90vh, calc(100vh - 24px));
+    max-height: calc(100vh - 24px);
+    width: min(1180px, calc(100vw - 24px));
+  }
+
+  @media (max-height: 820px) {
+    .brevyn-dashboard-scroll {
+      padding: 0.75rem;
+    }
+
+    .brevyn-dashboard-shell {
+      gap: 0.75rem;
+    }
+
+    .brevyn-empty-dashboard-stage {
+      min-height: clamp(20rem, 52vh, 32rem);
+      gap: 1rem;
+      padding: 1rem;
+    }
+
+    .brevyn-empty-dashboard-title {
+      font-size: clamp(1.8rem, 4vw, 3.4rem);
+    }
+
+    .brevyn-empty-dashboard-description {
+      line-height: 1.58;
+    }
+
+    .brevyn-dialog-window {
+      height: calc(100vh - 16px);
+      max-height: calc(100vh - 16px);
+      width: calc(100vw - 16px);
+    }
+  }
+
+  .brevyn-panel-surface {
+    border-radius: var(--radius-panel);
+    background: hsl(var(--card));
+    box-shadow: var(--shadow-panel);
+  }
+
+  .brevyn-card-surface {
+    border-radius: var(--radius-card);
+    background: hsl(var(--card));
+    box-shadow: var(--shadow-card);
+  }
+
+  .brevyn-inline-code {
+    border-radius: 0.42rem;
+    background: var(--code-inline-bg);
+    padding: 0.1rem 0.36rem;
+    color: var(--code-inline-fg);
+    font-family: "SF Mono", "JetBrains Mono", "Cascadia Code", ui-monospace, monospace;
+    font-size: 0.91em;
+    font-weight: 600;
+    letter-spacing: -0.012em;
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--code-inline-fg) 15%, transparent);
+  }
+
+  .brevyn-file-chip {
+    border-color: var(--code-border);
+    background: color-mix(in srgb, var(--code-bg) 84%, hsl(var(--background)) 16%);
+    color: var(--code-muted);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14);
+  }
+
+  .brevyn-file-chip:hover:not(:disabled) {
+    border-color: color-mix(in srgb, var(--code-inline-fg) 28%, var(--code-border));
+    background: color-mix(in srgb, var(--code-bg) 72%, hsl(var(--accent)) 28%);
+    color: var(--code-fg);
+  }
+
+  .brevyn-code-shell {
+    border: 1px solid var(--code-border);
+    border-radius: var(--radius-card);
+    background: var(--code-bg);
+    color: var(--code-fg);
+    box-shadow: var(--code-shadow);
+  }
+
+  .brevyn-code-shell pre,
+  .brevyn-code-pre {
+    margin: 0;
+    background: transparent !important;
+    color: var(--code-fg);
+    font-family: "SF Mono", "JetBrains Mono", "Cascadia Code", ui-monospace, monospace;
+    font-size: 12px;
+    line-height: 1.68;
+    tab-size: 2;
+  }
+
+  .brevyn-code-shell code {
+    font-family: inherit;
+  }
+
+  .brevyn-code-label {
+    color: var(--code-muted);
+  }
+
+  .brevyn-control-surface {
+    border-radius: var(--radius-control);
+    background: hsl(var(--background));
+    box-shadow: var(--shadow-control);
+  }
+
+  .taskagent-panel-content-in {
+    animation: taskagent-panel-content-in 180ms ease-out 90ms both;
+  }
+
+  .brevyn-stream-inline-char {
+    animation: brevyn-stream-inline-char-in 280ms cubic-bezier(0.22, 1, 0.36, 1) both;
+    display: inline;
+    will-change: opacity, transform, filter;
+  }
+
+  .markdownish-stream-block + .markdownish-stream-block {
+    margin-top: 0.35rem;
+  }
+
+  .tool-details-content-in {
+    animation: tool-details-content-in 180ms cubic-bezier(0.2, 0, 0, 1) both;
+  }
+
+  .brevyn-scrollbar {
+    scrollbar-color: hsl(var(--border)) transparent;
+    scrollbar-width: thin;
+    scrollbar-gutter: stable;
+  }
+
+  .brevyn-scrollbar::-webkit-scrollbar {
+    height: 10px;
+    width: 10px;
+  }
+
+  .brevyn-scrollbar::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border: 3px solid transparent;
+    border-radius: 999px;
+    background-clip: padding-box;
+  }
+
+  .brevyn-scrollbar-thin {
+    scrollbar-color: hsl(var(--muted-foreground) / 0.25) transparent;
+    scrollbar-width: thin;
+  }
+
+  .brevyn-scrollbar-thin::-webkit-scrollbar {
+    height: 6px;
+    width: 6px;
+  }
+
+  .brevyn-scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .brevyn-scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: hsl(var(--muted-foreground) / 0.25);
+    border-radius: 999px;
+  }
+
+  .brevyn-scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background-color: hsl(var(--muted-foreground) / 0.45);
+  }
+
+  .brevyn-scrollbar-hidden {
+    scrollbar-width: none;
+  }
+
+  .brevyn-scrollbar-hidden::-webkit-scrollbar {
+    display: none;
+  }
+
+  .drag-region {
+    -webkit-app-region: drag;
+  }
+
+  .no-drag {
+    -webkit-app-region: no-drag;
+  }
+}

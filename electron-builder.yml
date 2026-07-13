@@ -1,0 +1,288 @@
+# electron-builder configuration for Brevyn desktop builds.
+appId: app.brevyn.community
+productName: Brevyn Community
+copyright: Copyright © 2026 Brevyn
+
+electronVersion: 39.5.1
+electronDist: node_modules/electron/dist
+
+directories:
+  output: out
+  buildResources: resources
+
+compression: normal
+npmRebuild: false
+
+asar: true
+asarUnpack:
+  # Native/runtime binaries must live outside ASAR. Keep this list narrow:
+  # JS dependencies are bundled by esbuild/Vite or can run from app.asar.
+  - "dist/pdfjs/**"
+  - "node_modules/@anthropic-ai/**"
+  - "node_modules/@lancedb/lancedb-darwin-arm64/**"
+  - "node_modules/@lancedb/lancedb-win32-x64-msvc/**"
+  # Default document skills execute user-authored Node scripts from the
+  # workspace. External Node cannot read app.asar, so these packages must live
+  # on the real filesystem and are exposed through NODE_PATH at runtime.
+  - "node_modules/docx/**"
+  - "node_modules/mammoth/**"
+  - "node_modules/adm-zip/**"
+  - "node_modules/@xmldom/**"
+  - "node_modules/pptxgenjs/**"
+  - "node_modules/pdf-lib/package.json"
+  - "node_modules/pdf-lib/cjs/**"
+  - "node_modules/react/**"
+  - "node_modules/react-dom/**"
+  - "node_modules/react-icons/package.json"
+  - "node_modules/react-icons/lib/**"
+  - "node_modules/react-icons/fa/**"
+  - "node_modules/react-icons/md/**"
+  - "node_modules/react-icons/hi/**"
+  - "node_modules/react-icons/bi/**"
+  - "node_modules/sharp/**"
+  - "node_modules/@img/**"
+  - "node_modules/@pdf-lib/**"
+  - "node_modules/hash.js/**"
+  - "node_modules/jszip/**"
+  - "node_modules/xml-js/**"
+  - "node_modules/xml/**"
+  - "node_modules/argparse/**"
+  - "node_modules/base64-js/**"
+  - "node_modules/bluebird/**"
+  - "node_modules/dingbat-to-unicode/**"
+  - "node_modules/lop/**"
+  - "node_modules/path-is-absolute/**"
+  - "node_modules/node-ensure/**"
+  - "node_modules/underscore/**"
+  - "node_modules/xmlbuilder/**"
+  - "node_modules/duck/**"
+  - "node_modules/option/**"
+  - "node_modules/pako/**"
+  - "node_modules/https/**"
+  - "node_modules/image-size/**"
+  - "node_modules/loose-envify/**"
+  - "node_modules/scheduler/**"
+  - "node_modules/color/**"
+  - "node_modules/color-convert/**"
+  - "node_modules/color-string/**"
+  - "node_modules/color-name/**"
+  - "node_modules/detect-libc/**"
+  - "node_modules/inherits/**"
+  - "node_modules/minimalistic-assert/**"
+  - "node_modules/lie/**"
+  - "node_modules/immediate/**"
+  - "node_modules/readable-stream/**"
+  - "node_modules/safe-buffer/**"
+  - "node_modules/string_decoder/**"
+  - "node_modules/util-deprecate/**"
+  - "node_modules/setimmediate/**"
+  - "node_modules/sax/**"
+  - "node_modules/queue/**"
+  - "node_modules/js-tokens/**"
+  - "node_modules/simple-swizzle/**"
+  - "node_modules/is-arrayish/**"
+
+files:
+  - dist/**/*
+  - "!dist/*.test.cjs"
+  - "!dist/default-skills/**"
+  - "!dist/default-skills.zip"
+  - "!dist/native/**"
+  - package.json
+  # pdfjs-dist declares @napi-rs/canvas as an optional Node canvas backend.
+  # Brevyn renders PDFs in Chromium, so packaging this native backend only
+  # adds size without being used at runtime.
+  - "!node_modules/@napi-rs/**"
+  # Main/renderer dependencies are bundled. Only external runtime packages stay
+  # in node_modules, mirroring Proma's package strategy.
+  - node_modules/@anthropic-ai/claude-agent-sdk/**/*
+  # Claude Agent SDK ships platform-specific optional native CLI packages.
+  # Missing globs are skipped on runners for other OS/CPU combinations.
+  - node_modules/@anthropic-ai/claude-agent-sdk-darwin-arm64/**/*
+  - node_modules/@anthropic-ai/claude-agent-sdk-win32-x64/**/*
+  - node_modules/@anthropic-ai/sdk/**/*
+  - node_modules/@modelcontextprotocol/sdk/**/*
+  - node_modules/@lancedb/lancedb/**/*
+  - node_modules/@lancedb/lancedb-darwin-arm64/**/*
+  - node_modules/@lancedb/lancedb-win32-x64-msvc/**/*
+  - node_modules/apache-arrow/**/*
+  # Packages intentionally available to bundled default skills at runtime.
+  - node_modules/docx/**/*
+  - node_modules/mammoth/**/*
+  - node_modules/adm-zip/**/*
+  - node_modules/@xmldom/**/*
+  - node_modules/pptxgenjs/**/*
+  - node_modules/pdf-lib/package.json
+  - node_modules/pdf-lib/cjs/**/*
+  - "!node_modules/pdf-lib/**/*.map"
+  - node_modules/pdf-parse/package.json
+  - node_modules/pdf-parse/index.js
+  - node_modules/pdf-parse/lib/**/*
+  - node_modules/pdf-parse/node_modules/**/*
+  - node_modules/node-ensure/**/*
+  - node_modules/pdfjs-dist/package.json
+  - node_modules/pdfjs-dist/build/**/*
+  - node_modules/pdfjs-dist/standard_fonts/**/*
+  - node_modules/pdfjs-dist/cmaps/**/*
+  - node_modules/pdfjs-dist/image_decoders/**/*
+  - "!node_modules/pdfjs-dist/legacy/**"
+  - "!node_modules/pdfjs-dist/web/**"
+  - "!node_modules/pdfjs-dist/types/**"
+  - "!node_modules/pdfjs-dist/**/*.map"
+  - node_modules/react/**/*
+  - node_modules/react-dom/**/*
+  - node_modules/react-icons/package.json
+  - node_modules/react-icons/lib/**/*
+  - node_modules/react-icons/fa/**/*
+  - node_modules/react-icons/md/**/*
+  - node_modules/react-icons/hi/**/*
+  - node_modules/react-icons/bi/**/*
+  - "!node_modules/react-icons/ai/**"
+  - "!node_modules/react-icons/bs/**"
+  - "!node_modules/react-icons/cg/**"
+  - "!node_modules/react-icons/ci/**"
+  - "!node_modules/react-icons/di/**"
+  - "!node_modules/react-icons/fc/**"
+  - "!node_modules/react-icons/fa6/**"
+  - "!node_modules/react-icons/fi/**"
+  - "!node_modules/react-icons/gi/**"
+  - "!node_modules/react-icons/go/**"
+  - "!node_modules/react-icons/gr/**"
+  - "!node_modules/react-icons/hi2/**"
+  - "!node_modules/react-icons/im/**"
+  - "!node_modules/react-icons/io/**"
+  - "!node_modules/react-icons/io5/**"
+  - "!node_modules/react-icons/lia/**"
+  - "!node_modules/react-icons/lu/**"
+  - "!node_modules/react-icons/pi/**"
+  - "!node_modules/react-icons/ri/**"
+  - "!node_modules/react-icons/rx/**"
+  - "!node_modules/react-icons/si/**"
+  - "!node_modules/react-icons/sl/**"
+  - "!node_modules/react-icons/tb/**"
+  - "!node_modules/react-icons/tfi/**"
+  - "!node_modules/react-icons/ti/**"
+  - "!node_modules/react-icons/vsc/**"
+  - "!node_modules/react-icons/wi/**"
+  - node_modules/sharp/**/*
+  - node_modules/@img/**/*
+  - node_modules/@pdf-lib/**/*
+  - node_modules/hash.js/**/*
+  - node_modules/jszip/**/*
+  - node_modules/xml-js/**/*
+  - node_modules/xml/**/*
+  - node_modules/argparse/**/*
+  - node_modules/base64-js/**/*
+  - node_modules/bluebird/**/*
+  - node_modules/dingbat-to-unicode/**/*
+  - node_modules/lop/**/*
+  - node_modules/path-is-absolute/**/*
+  - node_modules/underscore/**/*
+  - node_modules/xmlbuilder/**/*
+  - node_modules/duck/**/*
+  - node_modules/option/**/*
+  - node_modules/pako/**/*
+  - node_modules/https/**/*
+  - node_modules/image-size/**/*
+  - node_modules/loose-envify/**/*
+  - node_modules/scheduler/**/*
+  - node_modules/color/**/*
+  - node_modules/color-convert/**/*
+  - node_modules/color-string/**/*
+  - node_modules/color-name/**/*
+  - node_modules/detect-libc/**/*
+  - node_modules/inherits/**/*
+  - node_modules/minimalistic-assert/**/*
+  - node_modules/lie/**/*
+  - node_modules/immediate/**/*
+  - node_modules/readable-stream/**/*
+  - node_modules/safe-buffer/**/*
+  - node_modules/string_decoder/**/*
+  - node_modules/util-deprecate/**/*
+  - node_modules/setimmediate/**/*
+  - node_modules/sax/**/*
+  - node_modules/queue/**/*
+  - node_modules/js-tokens/**/*
+  - node_modules/simple-swizzle/**/*
+  - node_modules/is-arrayish/**/*
+  - node_modules/reflect-metadata/**/*
+  - node_modules/@swc/helpers/**/*
+  - node_modules/flatbuffers/**/*
+  - node_modules/json-bignum/**/*
+  - node_modules/tslib/**/*
+  - node_modules/command-line-args/**/*
+  - node_modules/command-line-usage/**/*
+  - node_modules/array-back/**/*
+  - node_modules/find-replace/**/*
+  - node_modules/typical/**/*
+  - node_modules/wordwrapjs/**/*
+  - node_modules/table-layout/**/*
+  - node_modules/ansi-escape-sequences/**/*
+  - node_modules/collect-all/**/*
+  - node_modules/deep-extend/**/*
+  - node_modules/stream-connect/**/*
+  - node_modules/reduce-flatten/**/*
+  - node_modules/extend-shallow/**/*
+  - node_modules/is-plain-obj/**/*
+
+extraResources:
+  - from: resources/icon.png
+    to: icon.png
+  # Bundled default skills are archived as one resource so macOS signing does
+  # not have to scan thousands of tiny template/icon files inside the app.
+  - from: dist/default-skills.zip
+    to: default-skills.zip
+  - from: dist/native
+    to: native
+    filter:
+      - "**/*"
+  - from: dist/runtimes
+    to: runtimes
+    filter:
+      - "libreoffice-runtime.json"
+      - "libreoffice-*.zip"
+
+mac:
+  category: public.app-category.education
+  icon: resources/icon.icns
+  target:
+    - dmg
+    - zip
+
+dmg:
+  contents:
+    - x: 130
+      y: 220
+    - x: 410
+      y: 220
+      type: link
+      path: /Applications
+  window:
+    width: 540
+    height: 380
+
+win:
+  icon: resources/icon.ico
+  target:
+    - target: nsis
+      arch:
+        - x64
+
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+
+linux:
+  icon: resources/icon.png
+  target:
+    - AppImage
+
+# Community update target. The public repository can publish signed or unsigned
+# community builds independently from Brevyn Official.
+publish:
+  provider: github
+  owner: KOIAI777
+  repo: brevyn
+  releaseType: release

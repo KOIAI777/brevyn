@@ -1,0 +1,29 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="diffuseGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(512 470) rotate(90) scale(420)">
+      <stop offset="0" stop-color="#F4DFA7"/>
+      <stop offset="0.52" stop-color="#F7F3EA"/>
+      <stop offset="1" stop-color="#F1ECE2"/>
+    </radialGradient>
+  </defs>
+  <g transform="translate(100 100) scale(0.8046875)">
+    <rect width="1024" height="1024" rx="224" fill="url(#diffuseGlow)"/>
+    <g stroke="#1F3A6D" stroke-width="34" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M515 252V134"/>
+      <path d="M438 283L376 180"/>
+      <path d="M591 284L656 184"/>
+      <path d="M380 361L246 302"/>
+      <path d="M647 362L778 306"/>
+      <path d="M365 452H210"/>
+      <path d="M661 452H816"/>
+      <path d="M402 542L282 636"/>
+      <path d="M620 542L738 634"/>
+    </g>
+    <g stroke="#1F3A6D" stroke-width="38" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M512 278L402 438L448 604H576L622 438L512 278Z"/>
+      <path d="M512 374V588"/>
+      <path d="M460 486L512 420L564 486"/>
+      <circle cx="512" cy="704" r="74"/>
+    </g>
+  </g>
+</svg>

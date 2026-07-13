@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      (() => {
+        const cachedPreference = window.localStorage.getItem("brevyn.themePreference");
+        const cachedCodeTheme = window.localStorage.getItem("brevyn.codeThemePreference");
+        const cachedFontSmoothing = window.localStorage.getItem("brevyn.fontSmoothingEnabled");
+        const systemTheme = window.matchMedia?.("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        const theme = cachedPreference === "light" || cachedPreference === "dark" ? cachedPreference : systemTheme;
+        const codeTheme = ["brevyn", "github", "rose", "mono"].includes(cachedCodeTheme) ? cachedCodeTheme : "brevyn";
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.dataset.codeTheme = codeTheme;
+        document.documentElement.dataset.fontSmoothing = cachedFontSmoothing === "false" ? "off" : "on";
+        document.documentElement.style.colorScheme = theme;
+        window.__BREVYN_STARTUP_SPLASH_SHOWN_AT__ = Date.now();
+      })();
+    </script>
+    <style>
+      :root {
+        --brevyn-startup-bg: #f7f3ea;
+        --brevyn-startup-ink: #1a1814;
+        --brevyn-startup-muted: rgba(26, 24, 20, 0.42);
+        --brevyn-startup-ring: rgba(162, 93, 63, 0.18);
+        --brevyn-startup-glow: rgba(210, 130, 86, 0.34);
+        --brevyn-startup-glow-rose: rgba(218, 112, 120, 0.22);
+        --brevyn-startup-glow-amber: rgba(236, 169, 92, 0.28);
+        --brevyn-startup-glow-blue: rgba(88, 154, 190, 0.2);
+        --brevyn-startup-line: rgba(26, 24, 20, 0.16);
+      }
+
+      :root[data-theme="dark"] {
+        --brevyn-startup-bg: #11100f;
+        --brevyn-startup-ink: #f1e8dc;
+        --brevyn-startup-muted: rgba(241, 232, 220, 0.42);
+        --brevyn-startup-ring: rgba(238, 168, 117, 0.18);
+        --brevyn-startup-glow: rgba(238, 168, 117, 0.3);
+        --brevyn-startup-glow-rose: rgba(255, 116, 132, 0.3);
+        --brevyn-startup-glow-amber: rgba(255, 178, 94, 0.34);
+        --brevyn-startup-glow-blue: rgba(104, 181, 224, 0.26);
+        --brevyn-startup-line: rgba(241, 232, 220, 0.14);
+      }
+
+      html,
+      body,
+      #root {
+        min-height: 100%;
+      }
+
+      #brevyn-startup-splash {
+        position: fixed;
+        inset: 0;
+        z-index: 2147483647;
+        display: grid;
+        place-items: center;
+        overflow: hidden;
+        background:
+          linear-gradient(145deg, var(--brevyn-startup-bg), color-mix(in srgb, var(--brevyn-startup-bg) 92%, #000 8%));
+        color: var(--brevyn-startup-ink);
+        opacity: 1;
+        transition: opacity 260ms ease, visibility 260ms ease;
+      }
+
+      #brevyn-startup-splash::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        opacity: 0.08;
+        pointer-events: none;
+        background-image:
+          repeating-radial-gradient(circle at 17% 23%, rgba(255, 255, 255, 0.34) 0 0.55px, transparent 0.75px 3.4px),
+          repeating-radial-gradient(circle at 71% 68%, rgba(0, 0, 0, 0.18) 0 0.45px, transparent 0.7px 3.8px);
+        mix-blend-mode: overlay;
+      }
+
+      #brevyn-startup-splash[data-state="leaving"] {
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      .brevyn-startup-mark {
+        position: relative;
+        display: grid;
+        justify-items: center;
+        gap: 18px;
+        transform: translateY(-2px);
+      }
+
+      .brevyn-startup-mark::before {
+        content: "";
+        position: absolute;
+        inset: -112px -176px -90px;
+        z-index: -2;
+        border-radius: 999px;
+        background:
+          radial-gradient(ellipse at 34% 48%, color-mix(in srgb, var(--brevyn-startup-glow-blue) 48%, transparent), transparent 58%),
+          radial-gradient(ellipse at 56% 50%, color-mix(in srgb, var(--brevyn-startup-glow-amber) 46%, transparent), transparent 62%),
+          radial-gradient(ellipse at 72% 48%, color-mix(in srgb, var(--brevyn-startup-glow-rose) 42%, transparent), transparent 60%);
+        filter: blur(58px) saturate(1.02);
+        opacity: 0.76;
+        pointer-events: none;
+      }
+
+      .brevyn-startup-word {
+        position: relative;
+        isolation: isolate;
+        font-family: "Arial Rounded MT Bold", "SF Pro Rounded", "Avenir Next Heavy", "SF Pro Display", ui-rounded, system-ui, sans-serif;
+        font-size: clamp(62px, 10vw, 108px);
+        font-weight: 900;
+        letter-spacing: 0.004em;
+        line-height: 0.94;
+        color: var(--brevyn-startup-ink);
+        -webkit-text-stroke: 0.9px color-mix(in srgb, var(--brevyn-startup-ink) 80%, transparent);
+        text-shadow:
+          0 1px 0 rgba(255, 255, 255, 0.14),
+          0 9px 24px color-mix(in srgb, var(--brevyn-startup-glow) 18%, transparent);
+      }
+
+      .brevyn-startup-word::before {
+        content: "";
+        position: absolute;
+        inset: -0.72em -0.94em -0.58em;
+        z-index: -1;
+        border-radius: 999px;
+        background:
+          linear-gradient(100deg, color-mix(in srgb, var(--brevyn-startup-glow-blue) 86%, transparent) 0%, color-mix(in srgb, var(--brevyn-startup-glow-amber) 88%, transparent) 48%, color-mix(in srgb, var(--brevyn-startup-glow-rose) 82%, transparent) 100%);
+        filter: blur(46px) saturate(1.08);
+        opacity: 0.74;
+        pointer-events: none;
+      }
+
+      .brevyn-startup-word::after {
+        content: attr(data-word);
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        color: transparent;
+        -webkit-text-stroke: 0.78px transparent;
+        background:
+          linear-gradient(108deg, transparent 0%, transparent 34%, rgba(255, 255, 255, 0.96) 48%, rgba(255,255,255,0.64) 54%, transparent 70%, transparent 100%);
+        background-size: 260% 100%;
+        -webkit-background-clip: text;
+        background-clip: text;
+        filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.22));
+        animation: brevyn-startup-word-sweep 3.8s cubic-bezier(0.52, 0, 0.18, 1) infinite;
+        pointer-events: none;
+      }
+
+      .brevyn-startup-rule {
+        position: relative;
+        width: 320px;
+        height: 3px;
+        margin-top: 12px;
+        overflow: hidden;
+        border-radius: 999px;
+        background: color-mix(in srgb, var(--brevyn-startup-line) 78%, transparent);
+      }
+
+      .brevyn-startup-rule::after {
+        content: "";
+        position: absolute;
+        inset: 0 auto 0 0;
+        width: 200%;
+        border-radius: inherit;
+        background:
+          linear-gradient(90deg,
+            var(--brevyn-startup-glow-blue) 0%,
+            var(--brevyn-startup-glow-amber) 12%,
+            rgba(255,255,255,0.82) 25%,
+            var(--brevyn-startup-glow-rose) 38%,
+            var(--brevyn-startup-glow-blue) 50%,
+            var(--brevyn-startup-glow-amber) 62%,
+            rgba(255,255,255,0.82) 75%,
+            var(--brevyn-startup-glow-rose) 88%,
+            var(--brevyn-startup-glow-blue) 100%);
+        filter: drop-shadow(0 0 8px color-mix(in srgb, var(--brevyn-startup-glow) 52%, transparent));
+        opacity: 0.92;
+        will-change: transform;
+        animation: brevyn-startup-line-flow 3.4s linear infinite;
+      }
+
+      .brevyn-startup-caption {
+        position: relative;
+        margin: 2px 0 0;
+        font: 800 13px/1.2 ui-sans-serif, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--brevyn-startup-muted);
+      }
+
+      .brevyn-startup-slow {
+        position: relative;
+        min-height: 16px;
+        margin: -4px 0 0;
+        font: 700 11px/1.4 ui-sans-serif, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+        color: var(--brevyn-startup-muted);
+        letter-spacing: 0.02em;
+        opacity: 0;
+        transform: translateY(-2px);
+        transition: opacity 220ms ease, transform 220ms ease;
+      }
+
+      #brevyn-startup-splash[data-slow="true"] .brevyn-startup-slow {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      @keyframes brevyn-startup-word-sweep {
+        0% {
+          background-position: 180% 50%;
+          opacity: 0;
+        }
+        18% {
+          opacity: 1;
+        }
+        62% {
+          opacity: 1;
+        }
+        100% {
+          background-position: -80% 50%;
+          opacity: 0;
+        }
+      }
+
+      @keyframes brevyn-startup-line-flow {
+        from {
+          transform: translate3d(0, 0, 0);
+        }
+        to {
+          transform: translate3d(-50%, 0, 0);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .brevyn-startup-word::after,
+        .brevyn-startup-rule::after {
+          animation: none;
+        }
+      }
+    </style>
+    <title>Brevyn</title>
+  </head>
+  <body>
+    <div id="brevyn-startup-splash" aria-hidden="true">
+      <div class="brevyn-startup-mark">
+        <div class="brevyn-startup-word" data-word="BreVyn">BreVyn</div>
+        <div class="brevyn-startup-rule"></div>
+        <p class="brevyn-startup-caption">Local academic workspace</p>
+        <p class="brevyn-startup-slow">正在打开工作区...</p>
+      </div>
+    </div>
+    <div id="root"></div>
+    <script type="module" src="/main.tsx"></script>
+  </body>
+</html>
