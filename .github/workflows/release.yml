@@ -227,3 +227,28 @@ jobs:
               draft: false,
               prerelease: version.includes("-"),
             });
+
+  mirror-r2:
+    name: Mirror release to R2
+    runs-on: ubuntu-latest
+    needs: publish-notes
+    timeout-minutes: 45
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Mirror release assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_REPOSITORY: KOIAI777/brevyn
+          RELEASE_TAG: ${{ github.ref_name }}
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          R2_ENDPOINT: ${{ secrets.R2_ENDPOINT }}
+          R2_BUCKET: ${{ vars.R2_BUCKET }}
+          R2_EDITION: community
+          R2_PUBLIC_BASE_URL: ${{ vars.R2_PUBLIC_BASE_URL }}
+        run: bash scripts/mirror-release-to-r2.sh
