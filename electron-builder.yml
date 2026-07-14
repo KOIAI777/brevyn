@@ -247,6 +247,7 @@ mac:
   icon: resources/icon.icns
   identity: "Zhenghao Jia (4SWSN4QB7Y)"
   notarize: true
+  artifactName: "Brevyn-Community-${version}-${arch}-${os}.${ext}"
   target:
     - dmg
     - zip
