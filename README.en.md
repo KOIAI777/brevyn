@@ -14,6 +14,15 @@ Brevyn Community is the open-source, local-first Brevyn desktop workspace. It co
 
 ![Brevyn workspace](./resources/readme/brevyn-window.png)
 
+## Editions and Downloads
+
+| Edition | Best for | Models and services | Download |
+| --- | --- | --- | --- |
+| Brevyn Community | Reviewing the source, building locally, or contributing | Bring your own Agent, Embedding, Vision, and OCR providers | [Download the latest Community release](https://github.com/KOIAI777/brevyn/releases/latest) |
+| Brevyn Official | Installing a ready-to-use build with an official account and automatic updates | Supports Brevyn services and third-party providers | [Download the latest Official release](https://github.com/KOIAI777/brevyn-releases/releases/latest) |
+
+The two editions use separate app IDs, data directories, and update feeds, so they can be installed side by side. Community source code, issues, and contributions are maintained in this repository; Official installers are distributed through a separate public releases repository.
+
 ## Features
 
 - Semester and course workspaces: organize courses, materials, assignments, and conversations by semester.
