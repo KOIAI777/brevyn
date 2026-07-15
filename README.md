@@ -141,11 +141,13 @@ npm run dist:mac
 
 ## Star History
 
+## Star History
+
 <a href="https://www.star-history.com/?repos=KOIAI777%2Fbrevyn&type=date&legend=top-left">
  <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=KOIAI777/brevyn&type=Date&theme=dark" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=KOIAI777/brevyn&type=Date" />
-   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=KOIAI777/brevyn&type=Date" />
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=KOIAI777/brevyn&type=date&theme=dark&legend=top-left&sealed_token=TIGcFm1zpKrJWXBtEIYTqBP88gIyFhelK1hm1MY-1D6qv9Bd0r0MGQv_t9B7h3FBM6xIKmyqmRbPgbGjxbK-ILhjPSY8EikOOBldd11Aq6LR73xScgmEo9y9RP37wG_SpFjBN880w3y7lUSIZmRwVrEIpKaBmIpuMoOPsnnCMri4qfCUrAHwA4TXwLe1" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=KOIAI777/brevyn&type=date&legend=top-left&sealed_token=TIGcFm1zpKrJWXBtEIYTqBP88gIyFhelK1hm1MY-1D6qv9Bd0r0MGQv_t9B7h3FBM6xIKmyqmRbPgbGjxbK-ILhjPSY8EikOOBldd11Aq6LR73xScgmEo9y9RP37wG_SpFjBN880w3y7lUSIZmRwVrEIpKaBmIpuMoOPsnnCMri4qfCUrAHwA4TXwLe1" />
+   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=KOIAI777/brevyn&type=date&legend=top-left&sealed_token=TIGcFm1zpKrJWXBtEIYTqBP88gIyFhelK1hm1MY-1D6qv9Bd0r0MGQv_t9B7h3FBM6xIKmyqmRbPgbGjxbK-ILhjPSY8EikOOBldd11Aq6LR73xScgmEo9y9RP37wG_SpFjBN880w3y7lUSIZmRwVrEIpKaBmIpuMoOPsnnCMri4qfCUrAHwA4TXwLe1" />
  </picture>
 </a>
 
