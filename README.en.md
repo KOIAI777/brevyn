@@ -80,6 +80,14 @@ The editions use separate app IDs, data directories, and update feeds, so they c
 
 If GitHub downloads are slow, use the Community accelerated download on the [Brevyn website](https://www.brevyn.org/#download). Release files and version notes remain available from [GitHub Releases](https://github.com/KOIAI777/brevyn/releases).
 
+## Community and Contact
+
+- WeChat: `Rouget77`. Add the contact and include `GitHub` in your request to receive an invitation to the Brevyn community group.
+- Bugs and feature requests: [GitHub Issues](https://github.com/KOIAI777/brevyn/issues)
+- Security reports: use [GitHub Private Vulnerability Reporting](https://github.com/KOIAI777/brevyn/security/advisories/new). Do not post credentials, account details, or private materials in public issues.
+
+<a href="./resources/readme/wechat-contact.jpg"><img src="./resources/readme/wechat-contact.jpg" alt="Add Brevyn on WeChat: Rouget77" width="260"></a>
+
 ## Open-Source Direction
 
 ### Next
