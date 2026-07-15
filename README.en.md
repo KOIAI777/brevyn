@@ -71,6 +71,15 @@ Built-in previews cover PDF, DOCX, PPTX, XLSX, images, and common text files. Sp
 
 The editions use separate app IDs, data directories, and update feeds, so they can be installed side by side. This repository does not contain Official account, billing, wallet, subscription, redeem-code, or official model-provisioning logic.
 
+### Community Platform Support
+
+| Platform | Architecture | Package | Notes |
+| --- | --- | --- | --- |
+| macOS | Apple Silicon (arm64) | DMG / ZIP | Intel Macs are not currently supported |
+| Windows | x64 | Setup EXE | The Windows build is currently unsigned and may trigger SmartScreen on first launch |
+
+If GitHub downloads are slow, use the Community accelerated download on the [Brevyn website](https://www.brevyn.org/#download). Release files and version notes remain available from [GitHub Releases](https://github.com/KOIAI777/brevyn/releases).
+
 ## Open-Source Direction
 
 ### Next
@@ -116,7 +125,10 @@ npm run dist:mac
 
 - [Contributing](CONTRIBUTING.md)
 - [Contributor License Agreement](CLA.md)
+- [Support](SUPPORT.md)
+- [Code of Conduct](CODE_OF_CONDUCT.md)
 - [Security policy](SECURITY.md)
+- [Community and Official maintenance boundary](docs/edition-maintenance.md)
 - [Architecture](docs/architecture.md)
 - [Claude Agent SDK setup](docs/agent-sdk-setup.md)
 - [OpenAI Responses Anthropic adapter](docs/openai-responses-anthropic-adapter.md)

@@ -1,0 +1,77 @@
+name: Bug report
+description: Report a reproducible Brevyn Community defect.
+title: "[Bug]: "
+labels:
+  - bug
+  - needs-triage
+body:
+  - type: checkboxes
+    id: preflight
+    attributes:
+      label: Before submitting
+      options:
+        - label: I searched existing issues for the same problem.
+          required: true
+        - label: I removed private course materials, credentials, API keys, and personal data.
+          required: true
+  - type: input
+    id: version
+    attributes:
+      label: Brevyn Community version
+      placeholder: 0.1.8
+    validations:
+      required: true
+  - type: dropdown
+    id: operating-system
+    attributes:
+      label: Operating system
+      options:
+        - macOS Apple Silicon
+        - Windows x64
+        - Source build on another platform
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Workspace and navigation
+        - Course and task management
+        - Agent and chat
+        - RAG and indexing
+        - File preview
+        - Skills and MCP
+        - Provider configuration
+        - Installation and updates
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: observed-behavior
+    attributes:
+      label: What happened?
+      description: Describe the observed behavior and its impact.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction-steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Open ...
+        2. Select ...
+        3. Observe ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs or screenshots
+      description: Include sanitized logs or screenshots when useful.

@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security vulnerability
+    url: https://github.com/KOIAI777/brevyn/security/advisories/new
+    about: Report vulnerabilities and exposed credentials privately.
+  - name: Support guide
+    url: https://github.com/KOIAI777/brevyn/blob/main/SUPPORT.md
+    about: Check where Community, Official, and document-related questions belong.
