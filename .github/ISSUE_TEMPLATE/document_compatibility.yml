@@ -1,0 +1,67 @@
+name: Office/PDF compatibility report
+description: Report preview, parsing, indexing, or source-navigation problems for a document format.
+title: "[Compatibility]: "
+labels:
+  - compatibility
+  - needs-triage
+  - office-preview
+body:
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacy check
+      options:
+        - label: I will not attach private course materials, credentials, or personal data.
+          required: true
+        - label: I can provide a sanitized or synthetic reproduction file when requested.
+  - type: input
+    id: version
+    attributes:
+      label: Brevyn Community version
+      placeholder: 0.1.8
+    validations:
+      required: true
+  - type: dropdown
+    id: file-format
+    attributes:
+      label: File format
+      options:
+        - PDF
+        - DOCX
+        - PPTX
+        - XLSX
+        - CSV
+        - Image
+        - Text or Markdown
+        - Other
+    validations:
+      required: true
+  - type: checkboxes
+    id: affected-capabilities
+    attributes:
+      label: Affected capabilities
+      options:
+        - label: Preview rendering
+        - label: Text or object selection
+        - label: Parsing
+        - label: Indexing or RAG retrieval
+        - label: Source highlighting or navigation
+        - label: Agent reading or editing
+  - type: textarea
+    id: document-characteristics
+    attributes:
+      label: Document characteristics
+      description: Describe page or slide count, charts, formulas, scans, fonts, tracked changes, encryption, or other relevant traits.
+    validations:
+      required: true
+  - type: textarea
+    id: observed-and-expected
+    attributes:
+      label: Observed and expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction-material
+    attributes:
+      label: Reproduction material
+      description: Link a public, sanitized, or synthetic file and include safe reproduction steps when possible.

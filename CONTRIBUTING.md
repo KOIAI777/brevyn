@@ -8,6 +8,15 @@ Thanks for contributing to Brevyn Community. This repository contains the open-s
 - Use an issue for substantial features or architecture changes before implementation.
 - Do not include credentials, private course materials, user data, or Brevyn Official service code.
 - Read and accept [CLA.md](CLA.md) before submitting your first pull request.
+- Follow the [Code of Conduct](CODE_OF_CONDUCT.md) in issues, pull requests, and other project spaces.
+
+Use the matching issue form whenever possible:
+
+- **Bug report** for reproducible product defects.
+- **Feature request** for a new capability or workflow proposal.
+- **Office/PDF compatibility report** for preview, parsing, indexing, or source-navigation problems tied to a file format.
+
+See [SUPPORT.md](SUPPORT.md) before posting account, security, or private-document questions.
 
 ## Development
 
@@ -49,3 +58,4 @@ npm run update:skill-lock
 
 Community contributions are reviewed in this public repository first. Accepted changes may also be incorporated into Brevyn Official under the permissions granted by the CLA. Commercial-only code is maintained separately and must not be submitted here.
 
+There is currently no automatic synchronization between the repositories. See [docs/edition-maintenance.md](docs/edition-maintenance.md) for the maintenance boundary.

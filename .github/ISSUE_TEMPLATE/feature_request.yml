@@ -1,0 +1,48 @@
+name: Feature request
+description: Propose a focused capability or workflow improvement.
+title: "[Feature]: "
+labels:
+  - enhancement
+  - needs-triage
+body:
+  - type: checkboxes
+    id: preflight
+    attributes:
+      label: Before submitting
+      options:
+        - label: I searched existing issues and the open-source direction in the README.
+          required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: Describe the user problem before proposing an implementation.
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Proposed outcome
+      description: Describe what the user should be able to do.
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope and alternatives
+      description: Note relevant formats, workflows, constraints, or alternatives considered.
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Course and task workflow
+        - RAG and citations
+        - Office and PDF
+        - Agent and Skills
+        - Data analysis
+        - Research and LaTeX
+        - Desktop platform
+        - Other
+    validations:
+      required: true
